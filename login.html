@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+
+
+    <link rel="stylesheet" href="login.css">
+
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+</style>
+
+</head>
+<body>
+    <form>
+        <div class="login-container">
+
+            <!-- Brand mark: the same "H" badge + wordmark used in the
+                 top bar across the rest of the site, so this page reads
+                 as "Hakika's login page" rather than a generic form.
+                 Wrapped in a link back to the homepage, same as the
+                 brand mark does everywhere else. -->
+            <a class="login-brand" href="main.html#top">
+                <img class="brand-mark" src="H.png" alt="Hakika logo" width="48" height="48">
+                <span class="login-brand-name">Hakika</span>
+            </a>
+
+            <h1 class="login-title">Login</h1>
+            <p class="login-subtitle">Sign in to manage the profiles you care for</p>
+
+            <div class="form-group">
+            <input type="text" id="username" name="username" required>
+              <label for="username">Username/Email</label>
+            </div>
+
+            <div class="form-group">
+            <input type="password" id="password" name="password" required>
+            <label for="password">Password</label>
+            </div>
+
+            <!-- Was class="show" in the original — the CSS rule that
+                 lays this row out with flexbox is named .show-password,
+                 so the class here needed to match it exactly for that
+                 styling to actually apply. -->
+            <div class="show-password">
+                Show Password <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+            </div>
+
+            <!-- forgot.html doesn't exist yet in this project — this
+                 link is left pointing at it as a placeholder for when
+                 you build a "forgot password" page. -->
+            <div class="credentials">
+                Forgot your password/username? <a href="forgot.html">Click here</a>
+            </div>
+
+            <!-- Was href="signup.html" in the original. This project's
+                 actual registration page is register.html, so this now
+                 points there instead of a file that doesn't exist. -->
+            <div class="credentials">
+                Don't have an account? <a href="register.html">Sign up</a>
+            </div>
+
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+    <script src="login.js"></script>
+
+</body>
+</html>

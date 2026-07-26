@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:  "Manrope", serif;
+}
+
+body {
+    background-color: #2f6690;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #f0e8e8e5;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    position: relative;
+    /* Removed `size: 60%;` here — `size` isn't a real CSS property (it
+       only exists as an HTML attribute on a few form elements like
+       <input> and <select>), so the browser was silently ignoring it.
+       Width is already controlled by the `width: 500px;` above. */
+}
+
+/* --------------------------------------------------------------------
+   BRAND MARK — the small square "H" badge + "Hakika" wordmark, matching
+   the one used in the top bar on the rest of the site. Putting it
+   above the title is what turns this from "a generic login form" into
+   "the login form for Hakika, specifically" at a glance.
+   -------------------------------------------------------------------- */
+.login-brand{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-decoration: none; /* in case it's ever wrapped in a link back to the homepage */
+}
+
+.login-brand-mark{
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: #2f6690;
+    color: #ffffff;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.login-brand-name{
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #172033;
+    letter-spacing: 0.02em;
+}
+
+/* The one-line subtitle under "Login" — this is the "something to show
+   what this page is for" piece. Kept small and muted so it supports
+   the title instead of competing with it. */
+.login-subtitle{
+    text-align: center;
+    margin-top: -18px;
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: #666;
+}
+
+.login-container .form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.login-container .form-group input {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-container .form-group label {
+    position: absolute;
+    left: 10px;
+    top: 30%;
+    color: #777;
+    /* The original rule here was `transform: translate -50%;`, which
+       isn't valid CSS syntax (translate() needs parentheses and a
+       value, like translate(-50%, 0)), so the browser was silently
+       ignoring it — it wasn't doing anything either way. Left out
+       rather than "fixed", since the label's position is already
+       fully controlled by `top` and `left` above; no transform is
+       actually needed here. */
+}
+
+.login-container .form-group input:focus + label, .login-container .form-group input:valid+label {
+    top: -10px;
+    transition: 0.3s;
+    left: 10px;
+    font-size: 12px;
+    color: #2f6690; /* was #2760a0 — updated to match the new brand blue
+        used everywhere else (body background, button, brand mark) */
+    background-color: #f0e8e8e5;
+    padding: 0 5px;
+}
+.login-title {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 40px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+button {
+    width: 100%;
+    height: 40px;
+    background-color: #2f6690; /* was #2760a0 — same brand-blue update as above */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.credentials {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #555;
+}
+
+.show-password {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}

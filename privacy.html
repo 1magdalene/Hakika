@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Hakika</title>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<!-- Same top bar as the rest of the site. -->
+<header class="topbar">
+  <a class="brand" href="main.html#top" aria-label="Hakika home">
+    <img class="brand-mark" src="H.png" alt="Hakika logo" width="48" height="48">
+    <span class="brand-copy">
+      <span class="brand-name">Hakika</span>
+      <span class="brand-subtitle">Caregiver profile access</span>
+    </span>
+  </a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="main.html#problem">The problem</a></li>
+    <li><a href="main.html#solution">How it works</a></li>
+    <li><a href="main.html#onboarding">Create a profile</a></li>
+    <li><a href="main.html#views">Access Management</a></li>
+    <li><a class="nav-cta" href="register.html">Register</a></li>
+  </ul>
+
+  <button
+    class="menu-button"
+    id="menuButton"
+    type="button"
+    aria-label="Open main menu"
+    aria-controls="navLinks"
+    aria-expanded="false"
+  >☰</button>
+</header>
+
+<main>
+
+  <!-- Small hero band, same treatment as register.html / login.html / get-started.html -->
+  <section class="hero-banner">
+    <div class="band-inner" style="padding-top: clamp(2rem, 5vw, 3rem); padding-bottom: clamp(2rem, 5vw, 3rem);">
+      <div class="hero-banner-content" style="max-width: 640px;">
+        <div class="eyebrow eyebrow-blue">Privacy</div>
+        <h1 style="font-size: clamp(1.8rem, 3.4vw, 2.6rem);">Privacy Policy</h1>
+        <p class="hero-banner-lede">A plain-language explanation of what Hakika collects, why, and who can see it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       POLICY BODY
+       --------------------------------------------------------------------------
+       Written to describe this specific site's actual behaviour — not
+       generic boilerplate copied from elsewhere. If you change what
+       data the register form collects, how it's stored, or who can
+       see what, come back and update the matching section here so
+       this stays accurate.
+       ========================================================================== -->
+  <section class="policy-band">
+    <div class="band-inner">
+      <div class="policy-content">
+
+        <p class="policy-updated">Last updated: <time datetime="2026-07-26">26 July 2026</time></p>
+
+        <p>
+          Hakika is a personal project, built to help caregivers create a
+          simple, physical safety card for someone in their care — an
+          elder living with dementia, a child on the autism spectrum, or
+          anyone else who may wander and struggle to communicate who they
+          are. This page explains what information the site collects,
+          how it's used, and who is able to see it.
+        </p>
+        <p>
+          This is a small, independently-built project, not a
+          registered company or a government service — there is no legal
+          team behind this policy. It's written in plain language to be
+          honest about exactly what the site does, rather than as a
+          formal legal document. If you're a caregiver with questions
+          about your own or your elder's data, reach out using the
+          contact details at the bottom of this page.
+        </p>
+
+        <h2>What information is collected</h2>
+        <p>When someone registers on Hakika, the following is collected:</p>
+        <ul>
+          <li><strong>About the caregiver:</strong> full name, phone number, relationship to the person in their care, a chosen username, and a password.</li>
+          <li><strong>About the person being registered:</strong> their full name, a brief condition summary (e.g. "early-stage dementia"), their general home area, and one short safe instruction for a stranger who finds them.</li>
+        </ul>
+        <p>
+          Hakika deliberately does <strong>not</strong> ask for exact home
+          addresses, national ID numbers, full medical histories, or
+          financial information — none of these are collected at any
+          point in the registration form.
+        </p>
+
+        <h2>How your password is handled</h2>
+        <p>
+          Your password is never stored as plain, readable text. Before
+          it ever touches the database, it's run through a one-way
+          scrambling process (bcrypt password hashing) — the result can
+          be checked against on future logins, but can't be reversed
+          back into your original password, even by someone with direct
+          access to the database.
+        </p>
+
+        <h2>Who can see what</h2>
+        <p>
+          Every profile is split into two tiers, and this split is
+          enforced by how the system is built, not left to chance:
+        </p>
+        <ul>
+          <li><strong>Public tier</strong> (visible to anyone who reads or scans the printed card): the elder or child's name, the condition summary, the one safe instruction, and the caregiver's phone number. This is deliberately the minimum needed for a stranger to help.</li>
+          <li><strong>Caregiver tier</strong> (visible only after logging in): the same information, plus the general home area.</li>
+          <li><strong>Never shown anywhere:</strong> exact home addresses, ID numbers, or financial details — these are never collected in the first place, so there's nothing of the kind to expose.</li>
+        </ul>
+
+        <h2>Where information is stored</h2>
+        <p>
+          Registered accounts and profiles are stored in a MongoDB
+          database. The site itself is hosted on Vercel. Fonts used on
+          this site are loaded from Google Fonts, which means visiting
+          any page on this site makes a request to Google's servers to
+          load those fonts — no personal registration data is sent to
+          Google as part of that request.
+        </p>
+
+        <h2>How you stay logged in</h2>
+        <p>
+          After registering or logging in, a signed login token is
+          stored in your own browser (in what's called
+          <code>localStorage</code>) — this is what keeps you logged in
+          between visits. It stays on your device, expires after 7 days,
+          and is never shared with anyone else.
+        </p>
+
+        <h2>What Hakika does not do</h2>
+        <ul>
+          <li>Hakika does not sell, rent, or share your information with advertisers or other third parties.</li>
+          <li>Hakika does not run ads, and does not use third-party analytics or tracking scripts.</li>
+          <li>Hakika does not use your information for anything beyond operating the card/profile system described above.</li>
+        </ul>
+
+        <h2>Children and people who can't consent for themselves</h2>
+        <p>
+          Hakika profiles for children or elders who cannot give their
+          own informed consent are created and managed by an adult
+          caregiver on their behalf. If you're registering a profile for
+          someone in your care, you're confirming that you have the
+          right and the responsibility to make that decision for them.
+        </p>
+
+        <h2>Changing or deleting your information</h2>
+        <p>
+          You can update your profile's details at any time by logging
+          back in. If you'd like your account and all associated data
+          permanently deleted, contact the email address below — as this
+          is currently a small, personally-run project rather than an
+          automated service, deletion requests are handled manually.
+        </p>
+
+        <h2>Changes to this policy</h2>
+        <p>
+          If what Hakika collects or how it's used changes, this page
+          will be updated and the "last updated" date at the top will
+          change accordingly.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          Questions about this policy or your data can be sent to
+          <!-- TODO: replace with your real email address -->
+          <a href="mailto:magdalene.w.wanjiku@gmail.com">magdalene.w.wanjiku@gmail.com</a>.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copyright">&copy; 2026 Hakika. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://github.com/1magdalene" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/wangari-magdaline" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667h-3.554v-11.452h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zm-15.11-13.019c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019h-3.567v-11.452h3.567v11.452zm16.234-19.452h-20.454c-.979 0-1.771.774-1.771 1.729v20.542c0 .956.792 1.729 1.771 1.729h20.451c.978 0 1.778-.773 1.778-1.729v-20.542c0-.955-.8-1.729-1.778-1.729z"/></svg>
+      </a>
+      
+      <a href="mailto:magdalene.w.wanjiku@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+    <p style="font-size: 0.8rem;"><a href="privacy.html" style="color: var(--muted);">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script src="wuehh.js"></script>
+
+</body>
+</html>

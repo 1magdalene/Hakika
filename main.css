@@ -1,0 +1,1548 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* colors*/
+:root{
+  --bg: #ffffff;            
+  --bg-2: #f5f7fa;          
+  --bg-3: #eef3f8;         
+  --panel: #ffffff;         
+  --panel-strong: #fafbfd;  
+  --line: rgba(26, 32, 44, 0.12); 
+  --text: #172033;          
+  --muted: #5e697c;         
+  --accent: #c98a2e;        
+  --accent-soft: #f6e9d3;   
+  --accent-2: #edf2f7;      
+  --accent-3: #2f6690;      
+  --success: #3d7a5c;       
+  --success-soft: #e2f0e8;  
+  --alert: #b4463b;         
+  --alert-soft: #f6e4e1;   
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04); 
+}
+
+
+*{
+  box-sizing: border-box;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: 'Manrope', sans-serif;
+  background: var(--bg);
+}
+
+/* topbar */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  gap: 1rem;
+  padding: 0.7rem clamp(1rem, 3vw, 2rem);
+  background: #ffffff;
+  border-bottom: 1px solid var(--line);
+}
+
+
+.brand{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: var(--text);
+}
+
+
+.brand-copy{
+  display: grid;   
+  line-height: 1;
+}
+
+.brand-name{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+}
+
+.brand-subtitle{
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+
+/* for desktop navigation */
+.nav-links{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0 0 0 auto; 
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links a{
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 0.55rem 0.8rem;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border-bottom: 2px solid transparent; 
+  border-top: #2f6690;
+  border-radius: 6px;
+}
+
+.nav-links a:hover{
+  border-bottom-color: var(--accent-3);
+  background: var(--accent-2);
+}
+
+/* for register btn */
+.nav-cta{
+  background: var(--accent-3) !important;
+  color: #ffffff !important;
+  border-radius: 999px !important;
+  padding: 0.6rem 1.1rem !important;
+}
+
+.nav-cta:hover{
+  background: #26536f !important;
+}
+
+.menu-button{
+  display: none;
+  appearance: none;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--text);
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.band-inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 2rem);
+}
+
+.hero-banner{
+  width: 100%;
+  background: linear-gradient(135deg, #2f6690 0%, #4885ac 100%);
+}
+
+.hero-inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding: clamp(2rem, 5vw, 3.5rem) clamp(1rem, 4vw, 2rem);
+}
+
+#img{
+  width: 100%;
+  max-width: 400px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  object-fit: cover;
+  display:block;
+}
+
+.hero-banner-content{
+  color: #ffffff; 
+}
+
+.eyebrow-blue{
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.hero-banner h1{
+  margin: 0.85rem 0 0;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem); 
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: #ffffff;
+}
+
+.hero-banner-lede{
+  max-width: 34rem; 
+  margin: 1rem 0 1.25rem;
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 1.02rem;
+  line-height: 1.9;
+}
+
+.hero-banner-visual{
+  align-self: stretch; 
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hero-banner-visual img{
+  width: min(100%, clamp(280px, 42vw, 500px));
+  height: auto;
+  max-height: none;
+  object-fit: contain; 
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.hero-ctas{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: 1.4rem;
+}
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: 0.8rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.92rem;
+  border: 1px solid transparent;
+}
+
+.btn-primary{
+  color: #172033;
+  background: #ffffff;
+}
+
+.btn-ghost{
+  color: #ffffff;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.5); 
+}
+
+/*intro of hakika */
+.intro-band{
+  background: var(--bg-2); 
+  width: 100%;
+}
+
+.intro-copy{
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 860px; 
+}
+
+.intro-copy p{
+  margin: 0 0 1rem;
+}
+
+
+.photo-strip-band{
+  width: 100%;
+  background: var(--bg);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.photo-strip{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.1rem;
+}
+
+.photo-tile{
+  border-radius: 10px;
+  overflow: hidden; 
+  border: 1px solid var(--line);
+  background: var(--bg-2);
+}
+
+.photo-tile img{
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  background: var(--bg-3);
+}
+
+.photo-tile figcaption{
+  padding: 0.7rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+}
+
+/* Card preview */
+.card-preview-band{
+  width: 100%;
+  background: var(--bg-3);
+}
+
+.card-preview-wrap{
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+.card-stage{
+  perspective: 1200px;
+  width: min(100%, 340px);
+}
+
+.card{
+  width: 100%;
+  position: relative;
+  min-height: 245px;
+  aspect-ratio: 1.586 / 1; 
+  transform-style: preserve-3d;
+  transition: transform 600ms cubic-bezier(.2,.8,.2,1); 
+}
+
+
+.card.flipped{
+  transform: rotateY(180deg);
+}
+
+.card-face{
+  position: absolute;
+  inset: 0; 
+  backface-visibility: hidden; 
+  padding: 1.1rem 1.2rem;
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.card-back{
+  transform: rotateY(180deg);
+  background: var(--success-soft);
+  justify-content: flex-start;
+  gap: 0.6rem;
+  padding: 1.25rem 1.2rem 1.25rem;
+}
+
+
+.card-top-row,
+.card-bottom,
+.app-bar,
+.elder-row,
+.privacy,
+.scene-grid,
+.mockups,
+.footer-inner{
+  display: flex;
+  gap: 1rem;
+}
+
+.card-top-row,
+.card-bottom,
+.app-bar,
+.footer-inner{
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-brand{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  color: var(--accent-3);
+}
+
+.card-id{
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  position:center;
+}
+
+.card-brand small{
+  display: block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.status-pill,
+.tag,
+.scan-flash,
+.role{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 0.7rem;
+  border-radius: 999px; /* fully rounded ends, "pill" shape */
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.status-pill{
+  background: var(--success-soft);
+  color: var(--success);
+  border: 1px solid rgba(61, 122, 92, 0.25);
+}
+
+.card-mid{
+  display: grid;
+  grid-template-columns: 74px 1fr; 
+  gap: 0.9rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+
+.qr{
+  width: 74px;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  background:
+    linear-gradient(90deg, rgba(23,32,51,0.55) 1px, transparent 1px) 0 0 / 10px 10px,
+    linear-gradient(rgba(23,32,51,0.55) 1px, transparent 1px) 0 0 / 10px 10px,
+    #ffffff;
+  border: 1px solid var(--line);
+}
+
+.card-name{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.2rem, 3vw, 1.5rem);
+  line-height: 1.05;
+}
+
+.card-sub{
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+.back-label{
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.66rem;
+  color: var(--success);
+  font-weight: 700;
+}
+
+.back-row{
+  display: grid;
+  grid-template-columns: 92px 1fr; 
+  gap: 0.5rem;
+  margin-top: 0.7rem;
+  padding-top: 0.7rem;
+  border-top: 1px solid rgba(61, 122, 92, 0.2);
+  color: var(--text);
+  font-size: 0.85rem;
+  line-height: 1.2;
+}
+
+.back-row b{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.card-bottom{
+  margin-top: 1rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.card-hint{
+  margin: 1rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.card-hint span{
+  color: var(--accent-3);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   SECTION HEADINGS (the small pill "kicker" label + big title used at
+   the top of most sections, e.g. "THE PROBLEM" / "Being found isn't...")
+   ========================================================================== */
+.eyebrow,
+.section-kicker{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  background: var(--accent-2);
+  color: var(--accent-3);
+  border: 1px solid rgba(47, 102, 144, 0.25);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.68rem;
+}
+
+.section-title{
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.01em;
+  margin: 0.75rem 0 0;
+  line-height: 1.1;
+  font-size: clamp(1.7rem, 3vw, 2.5rem); /* kept modest on purpose — a government
+    /civic-service page reads as calmer and more trustworthy without
+    oversized poster-style headings */
+  max-width: 18ch; /* prevents the heading from stretching across the whole width */
+}
+
+.lede,
+#problem p,
+.flow-step p,
+.privacy-item p,
+.photo p{
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   "THE PROBLEM" SECTION (scenario text + the little animated route map)
+   ========================================================================== */
+#problem{
+  width: 100%;
+  background: var(--bg);
+}
+
+.scene{
+  margin-top: 1.5rem;
+}
+
+.scene-grid{
+  align-items: start;
+  display: grid;
+  grid-template-columns: 1fr; /* stacked: story text on top, the (bigger)
+    illustration underneath — a two-column layout left this diagram too
+    cramped to tell a multi-step story clearly */
+  gap: 2rem;
+}
+
+/* --------------------------------------------------------------------
+   Scroll-triggered "reveal" animation
+   --------------------------------------------------------------------
+   Elements with class="reveal" start invisible and shifted down
+   slightly (see the .reveal rule). script.js uses an
+   IntersectionObserver to detect when each one scrolls into view, and
+   adds the .in class at that moment, which the .reveal.in rule then
+   animates to full opacity / normal position. This creates the gentle
+   fade-and-rise effect as you scroll down the page.
+   -------------------------------------------------------------------- */
+.problem-copy{
+  max-width: 70ch; /* keeps the paragraphs readable now that this column
+    has the full band width to itself instead of sharing it with the SVG */
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 650ms ease, transform 650ms ease;
+}
+
+.reveal{
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.in{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#problem .scene.reveal.in .problem-copy{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* The illustration is a single straight line, left to right, marking
+   four points in the story: home, found, the call, and Zawadi
+   arriving. It draws in once, in order, and stays — no looping
+   pulses, no crossing paths, just one clear line showing what
+   happens and when. */
+.problem-route{
+  opacity: 0;
+  width: 100%;
+  min-height: 320px;
+}
+
+#problem .scene.reveal.in .problem-route{
+  opacity: 1;
+}
+
+/* Every stage (each point, the phone icon, the labels) shares this
+   same one-time fade-in; only the *delay* differs per stage, set with
+   the .seq-N classes below. */
+.seq{
+  opacity: 0;
+  transform: translateY(8px);
+  transform-box: fill-box; /* needed so translateY works on SVG shapes */
+  transform-origin: center;
+  animation: seq-fade 0.5s ease forwards;
+  animation-play-state: paused; /* stays invisible until in view */
+}
+
+#problem .scene.reveal.in .seq{
+  animation-play-state: running;
+}
+
+@keyframes seq-fade{
+  from{ opacity: 0; transform: translateY(8px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* Stage delays, in the order the story happens. Adjust these numbers
+   to speed the sequence up or slow it down. */
+.seq-1{ animation-delay: 0s;    }  /* home */
+.seq-2{ animation-delay: 0.9s;  }  /* wandering waypoint */
+.seq-3{ animation-delay: 1.6s;  }  /* found + no-ID callout */
+.seq-4{ animation-delay: 2.1s;  }  /* phone / calls Zawadi */
+.seq-5{ animation-delay: 2.7s;  }  /* Zawadi arrives */
+
+/* The single straight line drawing left to right. Same "dash marching
+   forward" technique as before (a dashed stroke whose dashoffset
+   counts down to 0) but now just one straight path instead of two
+   curved, crossing ones. */
+.story-line{
+  stroke-dasharray: 10 8;
+  stroke-dashoffset: 780;
+  animation: draw-story-line 2.7s linear forwards;
+  animation-play-state: paused;
+}
+
+#problem .scene.reveal.in .story-line{
+  animation-play-state: running;
+}
+
+@keyframes draw-story-line{
+  to{ stroke-dashoffset: 0; }
+}
+
+
+/* ==========================================================================
+   "WHY THIS KEEPS HAPPENING" — the research/evidence section
+   ========================================================================== */
+.evidence-band{
+  width: 100%;
+  background: var(--bg-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.evidence-grid{
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.85fr); /* list on the left, photo on the right */
+  gap: 2rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.evidence-list,
+.reasons-list{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.evidence-list li,
+.reasons-list li{
+  padding: 1rem 1.1rem;
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.evidence-list li span,
+.reasons-list li span{
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-3);
+  margin-bottom: 0.3rem;
+}
+
+/* The reasons list has no accompanying photo, so it's laid out as two
+   columns of cards on wider screens instead of the list+image split
+   the evidence section uses. */
+.reasons-band{
+  width: 100%;
+  background: var(--bg);
+}
+
+.reasons-list{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 1.5rem;
+}
+
+.evidence-image{
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.evidence-image img{
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 260px;
+  object-fit: cover;
+}
+
+.evidence-caption{
+  padding: 0.75rem 0.85rem;
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--muted);
+  background: #ffffff;
+  border-top: 1px solid var(--line);
+}
+
+.evidence-caption a{
+  color: var(--accent-3);
+  font-weight: 700;
+}
+
+.evidence-source{
+  margin-top: 1.25rem;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ==========================================================================
+   "HOW IT WORKS" — the four-step flow
+   ========================================================================== */
+#solution{
+  width: 100%;
+  background: var(--bg);
+}
+
+.flow{
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* four equal steps in a row */
+  gap: 1rem;
+}
+
+.flow-step{
+  padding: 1.1rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--panel-strong);
+  position: relative;
+}
+
+.flow-num{
+  width: 2.4rem;
+  height: 2.4rem;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--accent-soft);
+  color: var(--accent-3);
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.15rem;
+}
+
+.flow-step h3,
+.privacy-item h3,
+.app-body h4,
+.phone-screen h4,
+.onboard-step h3{
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
+
+.flow-step h3,
+.privacy-item h3{
+  margin-top: 0.75rem;
+  font-size: 1.3rem;
+}
+
+/* ==========================================================================
+   "SETTING UP AN ACCOUNT" — new onboarding walkthrough section
+   --------------------------------------------------------------------------
+   This section shows, step by step, what a caregiver actually sees while
+   signing up and creating an elder's profile. Each step reuses the same
+   ".onboard-step" card shape, with a small mock screen inside it built
+   from real HTML elements styled to look like app UI (not a photograph)
+   — this keeps it consistent with the rest of the demo and doesn't
+   require a real screenshot of an app that doesn't exist yet.
+   ========================================================================== */
+.onboarding-band{
+  width: 100%;
+  background: var(--bg-3);
+}
+
+.onboard-grid{
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* three steps side by side */
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.onboard-step{
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.onboard-step-label{
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.onboard-step-label .flow-num{
+  width: 1.9rem;
+  height: 1.9rem;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.onboard-step-label h3{
+  font-size: 1.05rem;
+}
+
+.onboard-screen{
+  padding: 1.1rem;
+}
+
+/* A fake browser/app "window" chrome (three dots), reused across every
+   mock screen on the site so they all look like part of one product. */
+.mini-bar{
+  display: flex;
+  gap: 0.35rem;
+  margin-bottom: 0.9rem;
+}
+
+.mini-bar i{
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--line);
+  display: inline-block;
+}
+
+/* Labelled form fields used inside the onboarding mock screens. These
+   are plain <div>s styled to look like input boxes — not real inputs —
+   since this is an illustration of the flow, not a working form. */
+.mock-field{
+  margin-bottom: 0.75rem;
+}
+
+.mock-field label{
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+}
+
+.mock-input{
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0.55rem 0.7rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: var(--bg-2);
+}
+
+.mock-input.filled{
+  background: #ffffff;
+  color: var(--text);
+}
+
+.mock-input.placeholder-text{
+  color: var(--muted);
+}
+
+.mock-btn{
+  width: 100%;
+  margin-top: 0.4rem;
+  border: 0;
+  border-radius: 8px;
+  min-height: 42px;
+  background: var(--accent-3);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.85rem;
+  font-family: 'Manrope', sans-serif;
+}
+
+.mock-btn.secondary{
+  background: transparent;
+  color: var(--accent-3);
+  border: 1px solid var(--accent-3);
+}
+
+/* Step 3's little QR + "card ready" preview, reusing the same fake-QR
+   background pattern as the main card demo higher up the page. */
+.mock-qr-row{
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.8rem;
+  border: 1px dashed rgba(61, 122, 92, 0.4);
+  border-radius: 8px;
+  background: var(--success-soft);
+}
+
+.mock-qr{
+  width: 48px;
+  height: 48px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  background:
+    linear-gradient(90deg, rgba(23,32,51,0.55) 1px, transparent 1px) 0 0 / 8px 8px,
+    linear-gradient(rgba(23,32,51,0.55) 1px, transparent 1px) 0 0 / 8px 8px,
+    #ffffff;
+  border: 1px solid var(--line);
+}
+
+.mock-qr-row p{
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   "WHO SEES WHAT" — caregiver dashboard + phone-scan comparison
+   ========================================================================== */
+#views{
+  width: 100%;
+  background: var(--bg);
+}
+
+.mockups{
+  margin-top: 1.5rem;
+  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* dashboard left, phone right */
+  gap: 1.25rem;
+}
+
+.app-window,
+.phone{
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.app-bar{
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.dots{
+  display: flex;
+  gap: 0.35rem;
+}
+
+.dots i{
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--line);
+  display: inline-block;
+}
+
+.title{
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.app-body,
+.phone-screen{
+  padding: 1.1rem;
+}
+
+.app-body h4{
+  font-size: 1.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.elder-row{
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-top: 1px solid var(--line);
+}
+
+.elder-row:first-of-type{
+  border-top: none; /* removes the divider above the very first row */
+}
+
+.elder-info{
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.avatar{
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  background: var(--accent-2);
+  color: var(--accent-3);
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.elder-name,
+.phone-screen h4{
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.elder-meta{
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.tag-active{
+  background: var(--success-soft);
+  color: var(--success);
+  border: 1px solid rgba(61, 122, 92, 0.25);
+}
+
+.tag-check{
+  background: var(--accent-soft);
+  color: #7a5215;
+  border: 1px solid rgba(201, 138, 46, 0.35);
+}
+
+.phone{
+  width: min(100%, 320px);
+  margin-left: auto; /* pushes the phone mockup to the right edge of its column */
+}
+
+.scan-demo-col{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.phone-screen{
+  background: #ffffff;
+}
+
+.phone-notch{
+  width: 32%;
+  height: 0.4rem;
+  margin: 0 auto 1rem;
+  border-radius: 999px;
+  background: var(--line);
+}
+
+.scan-flash,
+.role{
+  width: fit-content; /* only as wide as its text, not the full row */
+  margin-bottom: 0.65rem;
+}
+
+.scan-flash{
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+.role{
+  background: var(--accent-2);
+  color: var(--accent-3);
+}
+
+.phone-field{
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 0.25rem;
+}
+
+.phone-field b{
+  font-family: 'Manrope', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.phone-field span{
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
+
+.phone-cta{
+  width: 100%;
+  margin-top: 1rem;
+  border: 0;
+  border-radius: 8px;
+  min-height: 46px;
+  background: var(--accent-3);
+  color: #ffffff;
+  font-weight: 700;
+  font-family: 'Manrope', sans-serif;
+  cursor: pointer;
+}
+
+.caption{
+  margin: 0.7rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.privacy{
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.privacy-item{
+  padding: 1.1rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: #ffffff;
+  min-height: 100%; /* keeps all three cards the same height even with uneven text */
+}
+
+.privacy-item .dot{
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 999px;
+  display: inline-block;
+  margin-bottom: 0.7rem;
+}
+
+/* ==========================================================================
+   GET-STARTED PAGE (get-started.html) — Register vs. Log in choice
+   ========================================================================== */
+.choice-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+/* Each card is a single <a> element wrapping all its content, so the
+   entire card is clickable, not just the "Register →" text at the
+   bottom. */
+.choice-card{
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  background: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: border-color 150ms ease, transform 150ms ease;
+}
+
+.choice-card:hover{
+  border-color: var(--accent-3);
+  transform: translateY(-2px);
+}
+
+.choice-kicker{
+  display: inline-block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-3);
+  margin-bottom: 0.5rem;
+}
+
+.choice-card h2{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.01em;
+}
+
+.choice-card p{
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0 0 1rem;
+}
+
+.choice-arrow{
+  font-weight: 700;
+  color: var(--accent-3);
+}
+
+/* ==========================================================================
+   REGISTRATION PAGE (register.html)
+   --------------------------------------------------------------------------
+   Styles for the real, working <form> on the registration page — as
+   opposed to the "fake UI" .mock-input divs used in the onboarding
+   walkthrough on the home page. These rules style actual <input>,
+   <select>, and <textarea> elements.
+   ========================================================================== */
+.register-band{
+  width: 100%;
+  background: var(--bg-2);
+}
+
+.register-form{
+  max-width: 640px; /* narrower than the full band — forms read better
+    when they don't stretch too wide, so the eye doesn't have to travel
+    far from a label to its input */
+  display: grid;
+  gap: 1.75rem;
+}
+
+/* A <fieldset> groups related fields together (here: "your details"
+   vs "the elder's details") and its <legend> child is the visible
+   heading for that group — both are semantic HTML elements that also
+   help screen readers announce the grouping. */
+.field-group{
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: grid;
+  gap: 1rem;
+  background: #ffffff;
+}
+
+.field-group legend{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  padding: 0 0.4rem;
+  color: var(--accent-3);
+}
+
+.field{
+  display: grid;
+  gap: 0.35rem;
+}
+
+.field label{
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+/* All three real form controls share one look, so switching between
+   a text input, a dropdown, and a multi-line textarea feels seamless. */
+.field input,
+.field select,
+.field textarea{
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #ffffff;
+  width: 100%;
+}
+
+.field textarea{
+  resize: vertical; /* lets the visitor drag it taller, but not wider */
+}
+
+/* `:focus-visible` (rather than plain `:focus`) only shows this ring
+   when the field was reached via keyboard navigation, not on every
+   mouse click — a small but genuine accessibility improvement. */
+.field input:focus-visible,
+.field select:focus-visible,
+.field textarea:focus-visible{
+  outline: 2px solid var(--accent-3);
+  outline-offset: 1px;
+}
+
+.register-success{
+  margin-top: 1.75rem;
+  max-width: 640px;
+}
+
+.register-success-note{
+  margin-top: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+/* Shown when the API rejects a submission (bad login, duplicate
+   username, server error, etc). Same element is reused on the login
+   page for the same purpose. */
+.form-error{
+  margin-top: 0.5rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  background: var(--alert-soft);
+  color: var(--alert);
+  font-size: 0.85rem;
+  border: 1px solid rgba(180, 70, 59, 0.3);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer{
+  width: 100%;
+  background: var(--bg-2);
+}
+
+.footer-inner{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 1.25rem clamp(1rem, 4vw, 2rem);
+  align-items: center;
+  justify-content: space-between;
+  color: var(--muted);
+}
+
+.footer-copyright{
+  margin: 0;
+  text-align: left;
+  margin-right: auto;
+}
+
+.gh{
+  color: var(--accent-3);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------
+   FOOTER SOCIAL ICONS
+   --------------------------------------------------------------------
+   Three icon-only links (GitHub, LinkedIn, email) instead of a single
+   text link. Each <a> wraps one inline SVG icon; the SVGs use
+   `currentColor` for their fill/stroke, which is what lets a single
+   CSS rule (color, on hover) control every icon's color without
+   needing separate rules per icon.
+   -------------------------------------------------------------------- */
+.social-icons{
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.social-icons a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  color: var(--muted);
+  transition: color 150ms ease, background 150ms ease;
+}
+
+.social-icons a:hover{
+  color: var(--accent-3);
+  background: var(--accent-2);
+}
+
+.social-icons svg{
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+/* ==========================================================================
+   PRIVACY POLICY PAGE (privacy.html)
+   --------------------------------------------------------------------------
+   A single-column, document-style layout — narrower than the site's
+   usual band-inner width, since long paragraphs are easier to read
+   when they don't stretch too wide.
+   ========================================================================== */
+.policy-band{
+  width: 100%;
+  background: var(--bg);
+}
+
+.policy-content{
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--text);
+  line-height: 1.7;
+}
+
+.policy-content h2{
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.01em;
+  margin: 2rem 0 0.75rem;
+  color: var(--accent-3);
+}
+
+.policy-content h2:first-of-type{
+  margin-top: 0.5rem;
+}
+
+.policy-content p{
+  margin: 0 0 1rem;
+}
+
+.policy-content ul{
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+}
+
+.policy-content li{
+  margin-bottom: 0.6rem;
+}
+
+.policy-content code{
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85em;
+}
+
+.policy-content a{
+  color: var(--accent-3);
+  font-weight: 700;
+}
+
+.policy-updated{
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================================
+   RESPONSIVE RULES
+   --------------------------------------------------------------------------
+   Everything above is written "desktop-first" for clarity; these media
+   queries adjust the layout down for tablets and phones. A media query
+   only applies its rules when the browser window is at or below the
+   given width.
+   ========================================================================== */
+
+/* Tablet and below: swap the desktop nav-links for the hamburger button. */
+@media (max-width: 780px){
+  .nav-links{
+    display: none;
+  }
+
+  .menu-button{
+    display: inline-flex;
+  }
+
+  /* When the hamburger is clicked, script.js adds this class to
+     .nav-links, which overrides the display:none above and shows the
+     links stacked vertically underneath the top bar. */
+  .nav-links.mobile-open{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #ffffff;
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem;
+    margin: 0;
+  }
+}
+
+/* Wider tablets/small laptops: collapse every multi-column grid down to
+   a single column so nothing feels cramped. */
+@media (max-width: 960px){
+  .hero-inner,
+  .scene-grid,
+  .mockups,
+  .flow,
+  .privacy,
+  .evidence-grid,
+  .onboard-grid,
+  .reasons-list{
+    grid-template-columns: 1fr;
+  }
+
+  .hero-banner-visual{
+    justify-content: center;
+  }
+
+  .scan-demo-col{
+    align-items: stretch;
+  }
+
+  .phone{
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 640px){
+  .topbar{
+    position: relative; /* needed so the mobile nav-links can position
+      itself against the top bar via `position: absolute; top: 100%;` above */
+    flex-wrap: wrap;
+  }
+
+  .back-row{
+    grid-template-columns: 1fr; /* label above value instead of side-by-side */
+  }
+
+  .footer-inner{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+}

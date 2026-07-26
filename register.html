@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register — Hakika</title>
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<!-- Same top bar as index.html, so the site feels like one connected
+     product rather than two unrelated pages. The brand link points
+     back to index.html#top since "home" is a different file now. -->
+<header class="topbar">
+  <a class="brand" href="main.html#top" aria-label="Hakika home">
+    <img class="brand-mark" src="H.png" alt="Hakika logo" width="48" height="48">
+    <span class="brand-copy">
+      <span class="brand-name">Hakika</span>
+      <span class="brand-subtitle">Caregiver profile access</span>
+    </span>
+  </a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="main.html#problem">The problem</a></li>
+    <li><a href="main.html#solution">How it works</a></li>
+    <li><a href="main.html#onboarding">Create a profile</a></li>
+    <li><a href="main.html#views">Who sees what</a></li>
+    <li><a class="nav-cta" href="register.html">Register</a></li>
+  </ul>
+
+  <button
+    class="menu-button"
+    id="menuButton"
+    type="button"
+    aria-label="Open main menu"
+    aria-controls="navLinks"
+    aria-expanded="false"
+  >☰</button>
+</header>
+
+<main>
+
+  <!-- A smaller version of the hero banner, just to introduce the
+       registration page and keep the full-width coloured header
+       treatment consistent with the home page. -->
+  <section class="hero-banner">
+    <div class="band-inner" style="padding-top: clamp(2rem, 5vw, 3rem); padding-bottom: clamp(2rem, 5vw, 3rem);">
+      <div class="hero-banner-content" style="max-width: 640px;">
+        <div class="eyebrow eyebrow-blue">Caregiver registration</div>
+        <h1 style="font-size: clamp(1.8rem, 3.4vw, 2.6rem);">Set up their card in a few minutes</h1>
+        <p class="hero-banner-lede">Fill in your details and theirs once. Hakika turns it into a printable card.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       REGISTRATION FORM
+       --------------------------------------------------------------------------
+       This form now submits to a real backend: /api/register (see
+       api/index.js in this project). On submit, script.js sends the
+       fields below as JSON to that endpoint, which hashes the password
+       with bcrypt, stores everything in MongoDB, generates a real card
+       ID, and sends back a login token. That token is saved in the
+       browser's localStorage under "hakikaToken" — that's what "being
+       logged in" means on this site; login.html reads the same key
+       back out after a successful login.
+
+       For this to actually work when you open the page, two things
+       need to be true:
+         1. api/index.js is deployed (e.g. on Vercel) alongside this
+            HTML file, so /api/register is a real, reachable address
+         2. The MONGODB_URI and JWT_SECRET environment variables are
+            set wherever it's deployed — see the comments at the top
+            of api/index.js for what those need to contain
+       ========================================================================== -->
+  <section class="register-band">
+    <div class="band-inner">
+
+      <!-- The form itself. `id="registerForm"` is how script.js finds
+           it. `novalidate` is NOT set, so the browser's own built-in
+           validation (the `required` attributes below) still runs
+           before our JavaScript gets a chance to handle the submit. -->
+      <form id="registerForm" class="register-form">
+
+        <fieldset class="field-group">
+          <legend>Your details (the caregiver)</legend>
+
+          <div class="field">
+            <label for="caregiverName">Your full name</label>
+            <input type="text" id="caregiverName" name="caregiverName" placeholder="e.g. Zawadi Njeri" required>
+          </div>
+
+          <div class="field">
+            <label for="caregiverPhone">Your phone number</label>
+            <input type="tel" id="caregiverPhone" name="caregiverPhone" placeholder="07xx xxx xxx" required>
+          </div>
+
+          <div class="field">
+            <label for="relationship">Your relationship to them</label>
+            <select id="relationship" name="relationship" required>
+              <option value="" disabled selected>Select one…</option>
+              <option value="daughter-son">Daughter / Son</option>
+              <option value="spouse">Spouse</option>
+              <option value="hired-caregiver">Hired caregiver</option>
+              <option value="other-family">Other family member</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+
+          <!-- These three fields are what actually let you log back in
+               later on login.html — without a username/password stored
+               somewhere, there's nothing for a login page to check
+               against. The password is never sent or stored as plain
+               text; api/index.js hashes it with bcrypt before it ever
+               touches the database. -->
+          <div class="field">
+            <label for="username">Choose a username</label>
+            <input type="text" id="username" name="username" placeholder="e.g. zawadi.njeri" autocomplete="username" required>
+          </div>
+
+          <div class="field">
+            <label for="password">Choose a password</label>
+            <input type="password" id="password" name="password" minlength="8" autocomplete="new-password" required>
+          </div>
+
+          <div class="field">
+            <label for="confirmPassword">Confirm password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" minlength="8" autocomplete="new-password" required>
+          </div>
+        </fieldset>
+
+        <fieldset class="field-group">
+          <legend>Their details</legend>
+
+          <div class="field">
+            <label for="elderName">Their full name</label>
+            <input type="text" id="elderName" name="elderName" placeholder="e.g. Josiah Mwangi Karanja, or Amani Wekesa" required>
+          </div>
+
+          <div class="field">
+            <label for="condition">Condition summary</label>
+            <input type="text" id="condition" name="condition" placeholder="e.g. Early-stage dementia" required>
+          </div>
+
+          <div class="field">
+            <label for="homeArea">Home area (general — not exact address)</label>
+            <input type="text" id="homeArea" name="homeArea" placeholder="e.g. Githurai 44, Kahawa West side" required>
+          </div>
+
+          <div class="field">
+            <label for="safeInstruction">One safe instruction for a stranger</label>
+            <textarea id="safeInstruction" name="safeInstruction" rows="3" placeholder="e.g. Stay with him, ask about his garden" required></textarea>
+          </div>
+        </fieldset>
+
+        <!-- Shown by script.js if the API rejects the submission (e.g.
+             username already taken, passwords don't match, server
+             error). Hidden by default. -->
+        <p class="form-error" id="registerError" hidden></p>
+
+        <button type="submit" class="mock-btn" style="margin-top: 0.5rem;">Create profile</button>
+      </form>
+
+      <!-- Cross-link back to the choice, for anyone who ended up here
+           by mistake and actually already has an account. -->
+      <p style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--muted);">
+        Already have an account? <a href="login.html" style="color: var(--accent-3); font-weight: 700;">Log in</a>
+      </p>
+
+      <!-- Hidden until the form is submitted. script.js removes the
+           "hidden" attribute and fills in the elder's name + a
+           generated ID once the form passes validation. -->
+      <div class="register-success" id="registerSuccess" hidden>
+        <div class="mock-qr-row">
+          <div class="mock-qr" aria-hidden="true"></div>
+          <p>
+            Profile created for <strong id="successName">—</strong>.<br>
+            Card ID <strong id="successId">—</strong> is ready to print.
+          </p>
+        </div>
+        <p class="register-success-note">
+          You're logged in — this browser will remember you until you log out.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copyright">&copy; 2026 Hakika. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://github.com/1magdalene" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/wangari-magdaline" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667h-3.554v-11.452h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zm-15.11-13.019c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019h-3.567v-11.452h3.567v11.452zm16.234-19.452h-20.454c-.979 0-1.771.774-1.771 1.729v20.542c0 .956.792 1.729 1.771 1.729h20.451c.978 0 1.778-.773 1.778-1.729v-20.542c0-.955-.8-1.729-1.778-1.729z"/></svg>
+      </a>
+      
+      <a href="mailto:magdalene.w.wanjiku@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+    <p style="font-size: 0.8rem;"><a href="privacy.html" style="color: var(--muted);">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script src="wuehh.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hakika</title>
+<link rel="icon" type="image/png" href="H.png">
+<link rel="apple-touch-icon" href="H.png">
+<link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<!-- Topbar -->
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Hakika home">
+    <img class="brand-mark" src="H.png" alt="Hakika logo" width="48" height="48">
+    <span class="brand-copy">
+      <span class="brand-name">Hakika</span>
+      <span class="brand-subtitle">Caregiver profile access</span>
+    </span>
+  </a>
+
+ <!-- Navigation links -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#problem"> Why Hakika</a></li>
+    <li><a href="#solution">How it works</a></li>
+    <li><a href="#onboarding">Create a profile</a></li>
+    <li><a href="#views">Access Management</a></li>
+    <li><a class="nav-cta" href="register.html">Register</a></li>
+  </ul>
+
+ <!--buttons  -->
+  <button
+    class="menu-button"
+    id="menuButton"
+    type="button"
+    aria-label="Open main menu"
+    aria-controls="navLinks"
+    aria-expanded="false"
+  >☰</button>
+</header>
+
+<main id="top">
+
+ <!-- Top thingy with blue bg -->
+  <section class="hero-banner">
+    <div class="hero-inner">
+      <div class="hero-banner-content">
+        <div class="eyebrow eyebrow-blue">Built by caregivers, readable by anyone</div>
+        <h1>A card that speaks when memory fails</h1>
+        <p class="hero-banner-lede">A simple, secure way to help strangers know who to call when someone who wanders — an elder living with dementia, a child on the autism spectrum, or anyone else who struggles to communicate or find their way — is found away from home.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="#onboarding">See how it works</a>
+          <a class="btn btn-ghost" href="#views">Who sees what</a>
+        </div>
+      </div>
+      <div class="hero-banner-visual">
+        <img src="id.png" alt="the printed card" height="400" width="400" loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!--intro text -->
+  <section class="intro-band">
+    <div class="band-inner">
+      <p class="intro-copy">
+        Hakika is a caregiver-managed profile system built around a simple problem: when someone wanders — an elder living with dementia, a child on the autism spectrum, or anyone else who struggles to communicate or find their way home — and is found by a stranger, there's usually no way for that stranger to know who to call or how to help.
+      </p>
+      <p class="intro-copy">
+        Hakika lets a caregiver create a profile for the person in their care — condition notes, safe instructions, and emergency contacts — which gets printed directly onto a card, bracelet, or lanyard tag, along with a QR code. Anyone who finds them can read the essentials straight off the card, no phone required — name, a brief condition summary, one safe instruction, and the caregiver's contact. The QR code is a bonus: scanning it opens the same profile online, kept current even if something's changed since the card was printed.
+      </p>
+    </div>
+  </section>
+
+  <!--photo strip frame-->
+  <section class="photo-strip-band">
+    <div class="band-inner">
+      <div class="photo-strip">
+        <figure class="photo-tile">
+          <img src="23.jpeg" alt="A caregiver assisting an elder at home" loading="lazy">
+          <figcaption>Care usually happens quietly, at home, long before any card is needed.</figcaption>
+        </figure>
+        <figure class="photo-tile">
+          <img src="bus-stop.jpg" alt="A matatu stage in a Nairobi estate" loading="lazy">
+          <figcaption>Wandering rarely ends far from home — often just a few estates away.</figcaption>
+        </figure>
+        <figure class="photo-tile">
+          <img src="images4.jpeg" alt="A phone camera scanning a QR card" loading="lazy">
+          <figcaption>No app required — a scan opens straight in the phone's browser.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!--card preview -->
+  <section class="card-preview-band">
+    <div class="band-inner">
+      <div class="card-preview-wrap">
+        <div class="card-stage">
+          <div class="card" id="heroCard" role="button" tabindex="0" aria-label="Flip the sample Hakika card">
+            <div class="card-face card-front">
+              <div class="card-top-row">
+                <div class="card-brand">Hakika
+                    <div class="card-id"><small>CIVIC ID</small></div>
+                </div>
+                <div class="status-pill">● verified</div>
+              </div>
+              
+              <div class="card-mid">
+                <div class="qr" id="qrGrid" aria-hidden="true"></div>
+                <div>
+                  <div class="card-name">Josiah Mwangi Karanja</div>
+                  <div class="card-sub">Under the care of Zawadi N.</div>
+                </div>
+              </div>
+              <div class="card-bottom">
+                <span>ID · HK-2291-KE</span>
+                <span>Tap to see back of card</span>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <div class="back-label">what a stranger sees</div>
+              <div class="back-row"><b>Condition</b>Early-stage dementia — may not recall name or route home</div>
+              <div class="back-row"><b>If found</b>Stay with him, ask about his garden</div>
+              <div class="back-row"><b>Caregiver</b>Zawadi · 0745 214356 · call first</div>
+            </div>
+          </div>
+        </div>
+        <p class="card-hint"><span>Both are printed</span> on the real card. The QR on the front is a bonus: it opens the same profile online, kept current even if something changes after printing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- la problemo-->
+  <section id="problem">
+    <div class="band-inner">
+      <span class="section-kicker">Real-Life example</span>
+      <h2 class="section-title reveal">Being found isn't the hard part. Being understood is.</h2>
+      <div class="scene reveal">
+        <div class="scene-grid">
+          <div class="problem-copy">
+            <p>An elder living with dementia steps out for what she thinks is a short walk. Two hours later she's at a matatu stage three estates from home, and she can't say her name today, let alone her son's phone number.</p>
+            <p style="margin-top:1rem;"><b>Nobody who finds her is unwilling to help.</b> They just have nothing to act on — no contact, no context, no way to tell "confused" from "in danger."</p>
+            <p style="margin-top:1rem;">Caregivers already hold this information in their heads. Hakika just puts it somewhere a stranger's phone camera can reach it.</p>
+          </div>
+ 
+<!-- illustration -->
+          <svg class="route problem-route" viewBox="0 0 900 300" fill="none" aria-hidden="true">
+
+            <path class="story-line" d="M80,170 L820,170" stroke="#3A4E78" stroke-width="2"/>
+
+           
+            <g class="seq seq-1">
+              <circle cx="80" cy="170" r="9" fill="#3d7a5c"/>
+              <text x="80" y="200" fill="#172033" font-family="IBM Plex Mono, monospace" font-size="13" text-anchor="middle">Home</text>
+              <text x="80" y="216" fill="#8a92a3" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">6:40am</text>
+            </g>
+
+            
+            <g class="seq seq-2">
+              <circle cx="320" cy="170" r="5" fill="#8a92a3"/>
+              <text x="320" y="150" fill="#8a92a3" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">wandering</text>
+            </g>
+
+           
+            <g class="seq seq-3">
+              <circle cx="560" cy="170" r="9" fill="#b4463b"/>
+              <text x="560" y="200" fill="#172033" font-family="IBM Plex Mono, monospace" font-size="13" text-anchor="middle">Found · 8:55am</text>
+              <text x="560" y="216" fill="#b4463b" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">no ID on her</text>
+
+              
+              <g transform="translate(560,130)">
+                <circle cy="-14" r="7" fill="#2f6690"/>
+                <path d="M-11 8 Q0 -8 11 8 Z" fill="#2f6690"/>
+              </g>
+              <text x="605" y="120" fill="#5e697c" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="start">a stranger</text>
+            </g>
+
+           
+            <g class="seq seq-4">
+              <path d="M650,170 L650,120" stroke="#8a92a3" stroke-width="1.5" stroke-dasharray="3 4"/>
+              <rect x="642" y="80" width="16" height="26" rx="4" fill="#172033"/>
+              <circle cx="650" cy="102" r="1.4" fill="#ffffff"/>
+              <text x="650" y="66" fill="#172033" font-family="IBM Plex Mono, monospace" font-size="12" text-anchor="middle">calls Zawadi</text>
+            </g>
+
+           
+            <g class="seq seq-5">
+              <circle cx="820" cy="170" r="9" fill="#3d7a5c"/>
+              <g transform="translate(820,130)">
+                <circle cy="-14" r="7" fill="#3d7a5c"/>
+                <path d="M-11 8 Q0 -8 11 8 Z" fill="#3d7a5c"/>
+              </g>
+              <text x="820" y="200" fill="#172033" font-family="IBM Plex Mono, monospace" font-size="13" text-anchor="middle">Zawadi arrives</text>
+              <text x="820" y="216" fill="#8a92a3" font-family="IBM Plex Mono, monospace" font-size="11" text-anchor="middle">9:20am</text>
+            </g>
+
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--sigma-->
+  <section class="evidence-band">
+    <div class="band-inner">
+      <span class="section-kicker">Why this keeps happening</span>
+      <h2 class="section-title reveal">The gap isn't awareness of the problem, It's a system to act on it.</h2>
+      <div class="evidence-grid reveal">
+        <ul class="evidence-list">
+          <li>
+            <span>Diagnosis comes late</span>
+            Families often dismiss early memory loss and confusion as ordinary aging, and in some cases attribute it to spiritual causes — both delay the point at which the family gets a diagnosis, let alone a safety plan.
+          </li>
+          <li>
+            <span>Care is informal and unsupported</span>
+            Dementia care in Kenya happens almost entirely inside the home, carried by family members or informally paid domestic workers, with little formal training or backup.
+          </li>
+          <li>
+            <span>No shared system exists yet</span>
+            There's no national identification or wandering-response system for people with dementia in Kenya — caregivers are left to build their own ad hoc solutions, like writing a name and number on a piece of paper.
+          </li>
+        </ul>
+        <figure class="evidence-image">
+          <img src="image3s.jpeg" alt="A community health worker visiting an elder and their family" loading="lazy">
+          <figcaption class="evidence-caption">
+            Photo used here sourced from the Nation Africa article
+            <a href="https://nation.africa/kenya/health/behind-closed-doors-the-struggles-of-caring-for-dementia-patients-4887926" target="_blank" rel="noopener">Behind closed doors: the struggles of caring for dementia patients</a>.
+          </figcaption>
+        </figure>
+      </div>
+      <p class="evidence-source">Grounded in Kenya-based research on dementia caregiving, including studies from the Aga Khan University Brain and Mind Institute and a qualitative study of caregivers across three Kenyan counties. For a firsthand account, see the Nation Africa article <a href="https://nation.africa/kenya/health/behind-closed-doors-the-struggles-of-caring-for-dementia-patients-4887926" target="_blank" rel="noopener">Behind closed doors: the struggles of caring for dementia patients</a>.</p>
+    </div>
+  </section>
+
+  <!--manual-->
+  <section id="solution">
+    <div class="band-inner">
+      <span class="section-kicker">How it works</span>
+      <h2 class="section-title reveal">Four steps, one caregiver, one card.</h2>
+      <div class="flow reveal">
+        <div class="flow-step">
+          <div class="flow-num">01</div>
+          <h3>Caregiver enrols</h3>
+          <p>Zawadi fills in Josiah's profile once — condition, routine, home area, who to call, in what order.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">02</div>
+          <h3>Hakika generates the code</h3>
+          <p>The profile is split into two tiers automatically: what's safe for anyone to see, and what stays private.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">03</div>
+          <h3>Printed onto a card</h3>
+          <p>The QR goes on a wallet card, a bracelet, or a lanyard tag — whatever Josiah will actually keep on him.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-num">04</div>
+          <h3>Anyone can read it</h3>
+          <p>No phone needed — the essentials are printed right on the card. Scanning the QR is a bonus: it opens the same profile online, kept current.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- reasons for-->
+  <section class="reasons-band">
+    <div class="band-inner">
+      <span class="section-kicker">Why register at all?</span>
+      <h2 class="section-title reveal">A handwritten card works — until it doesn't.</h2>
+      <p class="lede" style="max-width: 70ch; margin-top: 0.75rem;">
+        Writing a name and a phone number on a piece of cardboard costs nothing, and for a single card, printed once, it does almost the same job. An account earns its place in what happens next.
+      </p>
+      <ul class="reasons-list reveal">
+        <li>
+          <span>It stays current</span>
+          A handwritten card is frozen the moment it's written. Phone numbers change, conditions progress, instructions stop fitting — and the card just keeps confidently showing whatever was true on day one. With an account, updating means editing one field; the card's QR always opens whatever is current, without anyone needing to notice it's gone stale and reprint it.
+        </li>
+        <li>
+          <span>It covers more than one person</span>
+          A caregiver looking after several people — a JAF volunteer, a care home worker — has no way to track several handwritten cards at once: which is old, who still needs one printed. One dashboard replaces an untracked stack of cardboard.
+        </li>
+        <li>
+          <span>It builds in the privacy split</span>
+          A blank piece of card gives a rushed caregiver no structure, which is exactly how sensitive details end up written on it by mistake. Hakika's form enforces the public/private split by design, so getting that judgment call right doesn't depend on the caregiver remembering to.
+        </li>
+        <li>
+          <span>It survives loss</span>
+          Cards get lost, rained on, chewed by a goat. With an account, the caregiver logs back in and reprints from what's already saved, instead of reconstructing everything from memory.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!--onboarding-->
+  <section class="onboarding-band" id="onboarding">
+    <div class="band-inner">
+      <span class="section-kicker">Creating a profile</span>
+      <h2 class="section-title reveal">What Zawadi sees while setting Josiah up.</h2>
+
+      <div class="onboard-grid reveal">
+
+        <!-- Step 1: account creation -->
+        <div class="onboard-step">
+          <div class="onboard-step-label">
+            <div class="flow-num">01</div>
+            <h3>Create an account</h3>
+          </div>
+          <div class="onboard-screen">
+            <div class="mini-bar"><i></i><i></i><i></i></div>
+            <div class="mock-field">
+              <label>Full name</label>
+              <div class="mock-input filled">Zawadi Njeri</div>
+            </div>
+            <div class="mock-field">
+              <label>Phone number</label>
+              <div class="mock-input filled">07•• ••• 214</div>
+            </div>
+            <div class="mock-field">
+              <label>Relationship to elder</label>
+              <div class="mock-input placeholder-text">e.g. daughter, hired caregiver…</div>
+            </div>
+            <button class="mock-btn" type="button">Create account</button>
+          </div>
+        </div>
+
+        <!-- Step 2: building the elder's profile -->
+        <div class="onboard-step">
+          <div class="onboard-step-label">
+            <div class="flow-num">02</div>
+            <h3>Add Josiah's details</h3>
+          </div>
+          <div class="onboard-screen">
+            <div class="mini-bar"><i></i><i></i><i></i></div>
+            <div class="mock-field">
+              <label>Elder's name</label>
+              <div class="mock-input filled">Josiah Mwangi Karanja</div>
+            </div>
+            <div class="mock-field">
+              <label>Condition summary</label>
+              <div class="mock-input filled">Early-stage dementia</div>
+            </div>
+            <div class="mock-field">
+              <label>Safe instruction for a stranger</label>
+              <div class="mock-input filled">Stay with him, ask about his garden</div>
+            </div>
+            <button class="mock-btn secondary" type="button">Save profile</button>
+          </div>
+        </div>
+
+        <!-- Step 3: the card is generated and ready to print -->
+        <div class="onboard-step">
+          <div class="onboard-step-label">
+            <div class="flow-num">03</div>
+            <h3>Generate the card</h3>
+          </div>
+          <div class="onboard-screen">
+            <div class="mini-bar"><i></i><i></i><i></i></div>
+            <div class="mock-qr-row">
+              <div class="mock-qr" aria-hidden="true"></div>
+              <p>Card <strong>HK-2291-KE</strong> is ready — print it onto a wallet card, bracelet, or lanyard tag.</p>
+            </div>
+            <button class="mock-btn" type="button" style="margin-top: 0.9rem;">Download / print card</button>
+          </div>
+        </div>
+
+      </div>
+
+<!-- takes to register page -->
+      <p style="text-align:center; margin-top: 2rem;">
+        <a class="btn btn-primary" style="background: var(--accent-3); color: #ffffff;" href="register.html">Register as a caregiver</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- access management -->
+  <section id="views">
+    <div class="band-inner">
+      <span class="section-kicker">Who sees what</span>
+      <h2 class="section-title reveal">One profile, two very different views.</h2>
+      <div class="mockups reveal">
+
+        <!-- Caregiver's dashboard: everyone currently under Zawadi's care -->
+        <div class="app-window">
+          <div class="app-bar">
+            <div class="dots"><i></i><i></i><i></i></div>
+            <div class="title">hakika.app / caregiver / zawadi</div>
+          </div>
+          <div class="app-body">
+            <h4>People under your care</h4>
+            <div class="elder-row">
+              <div class="elder-info">
+                <div class="avatar">JK</div>
+                <div>
+                  <div class="elder-name">Josiah Karanja</div>
+                  <div class="elder-meta">HK-2291-KE · last check-in 2h ago</div>
+                </div>
+              </div>
+              <div class="tag tag-active">card active</div>
+            </div>
+            <div class="elder-row">
+              <div class="elder-info">
+                <div class="avatar">EW</div>
+                <div>
+                  <div class="elder-name">Esther Wanjiru</div>
+                  <div class="elder-meta">HK-2306-KE · last check-in 1d ago</div>
+                </div>
+              </div>
+              <div class="tag tag-check">confirm details</div>
+            </div>
+            <div class="elder-row">
+              <div class="elder-info">
+                <div class="avatar">PM</div>
+                <div>
+                  <div class="elder-name">Peter Mutiso</div>
+                  <div class="elder-meta">HK-2312-KE · last check-in 4h ago</div>
+                </div>
+              </div>
+              <div class="tag tag-active">card active</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- What a stranger's phone shows immediately after scanning -->
+        <div class="scan-demo-col">
+          <div class="phone">
+            <div class="phone-screen">
+              <div class="phone-notch"></div>
+              <div class="scan-flash">scanned just now</div>
+              <h4>Josiah M. Karanja</h4>
+              <div class="role">Emergency-tier profile</div>
+              <div class="phone-field"><b>Condition</b><span>Early-stage dementia. May be disoriented or repeat questions.</span></div>
+              <div class="phone-field"><b>If found</b><span>Stay with him. He responds well to being asked about his garden.</span></div>
+              <div class="phone-field"><b>Call</b><span>Zawadi (caregiver) — 07•• ••• 214</span></div>
+              <button class="phone-cta">Call caregiver now</button>
+            </div>
+          </div>
+          <p class="caption">this is all the scanner ever sees</p>
+        </div>
+      </div>
+
+      
+      <div class="privacy reveal">
+        <div class="privacy-item">
+          <div class="dot" style="background: var(--success);"></div>
+          <h3>Public tier</h3>
+          <p>Name, condition summary, one safe instruction, caregiver's contact. Enough to help, nothing that endangers.</p>
+        </div>
+        <div class="privacy-item">
+          <div class="dot" style="background: var(--accent);"></div>
+          <h3>Caregiver tier</h3>
+          <p>Full medical notes, medication schedule, family contacts, and home address — visible only after login.</p>
+        </div>
+        <div class="privacy-item">
+          <div class="dot" style="background: var(--alert);"></div>
+          <h3>Never shown</h3>
+          <p>No exact home address, no ID number, no financial details are ever exposed through the scan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="footer-copyright">&copy; 2026 Hakika. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="https://github.com/1magdalene" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/wangari-magdaline" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667h-3.554v-11.452h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zm-15.11-13.019c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019h-3.567v-11.452h3.567v11.452zm16.234-19.452h-20.454c-.979 0-1.771.774-1.771 1.729v20.542c0 .956.792 1.729 1.771 1.729h20.451c.978 0 1.778-.773 1.778-1.729v-20.542c0-.955-.8-1.729-1.778-1.729z"/></svg>
+      </a>
+
+     <a href="mailto:magdalene.w.wanjiku@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      </a>
+    </div>
+    <p style="font-size: 0.8rem;"><a href="privacy.html" style="color: var(--muted);">Privacy Policy</a></p>
+  </div>
+</footer>
+
+<script src="wuehh.js"></script>
+
+</body>
+</html>
