@@ -498,10 +498,6 @@ body{
   font-weight: 700;
 }
 
-/* ==========================================================================
-   SECTION HEADINGS (the small pill "kicker" label + big title used at
-   the top of most sections, e.g. "THE PROBLEM" / "Being found isn't...")
-   ========================================================================== */
 .eyebrow,
 .section-kicker{
   display: inline-flex;
@@ -523,10 +519,8 @@ body{
   letter-spacing: 0.01em;
   margin: 0.75rem 0 0;
   line-height: 1.1;
-  font-size: clamp(1.7rem, 3vw, 2.5rem); /* kept modest on purpose — a government
-    /civic-service page reads as calmer and more trustworthy without
-    oversized poster-style headings */
-  max-width: 18ch; /* prevents the heading from stretching across the whole width */
+  font-size: clamp(1.7rem, 3vw, 2.5rem); 
+  max-width: 18ch; 
 }
 
 .lede,
@@ -538,9 +532,6 @@ body{
   line-height: 1.7;
 }
 
-/* ==========================================================================
-   "THE PROBLEM" SECTION (scenario text + the little animated route map)
-   ========================================================================== */
 #problem{
   width: 100%;
   background: var(--bg);
@@ -553,25 +544,13 @@ body{
 .scene-grid{
   align-items: start;
   display: grid;
-  grid-template-columns: 1fr; /* stacked: story text on top, the (bigger)
-    illustration underneath — a two-column layout left this diagram too
-    cramped to tell a multi-step story clearly */
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
-/* --------------------------------------------------------------------
-   Scroll-triggered "reveal" animation
-   --------------------------------------------------------------------
-   Elements with class="reveal" start invisible and shifted down
-   slightly (see the .reveal rule). script.js uses an
-   IntersectionObserver to detect when each one scrolls into view, and
-   adds the .in class at that moment, which the .reveal.in rule then
-   animates to full opacity / normal position. This creates the gentle
-   fade-and-rise effect as you scroll down the page.
-   -------------------------------------------------------------------- */
+
 .problem-copy{
-  max-width: 70ch; /* keeps the paragraphs readable now that this column
-    has the full band width to itself instead of sharing it with the SVG */
+  max-width: 70ch; 
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 650ms ease, transform 650ms ease;
@@ -593,11 +572,6 @@ body{
   transform: translateY(0);
 }
 
-/* The illustration is a single straight line, left to right, marking
-   four points in the story: home, found, the call, and Zawadi
-   arriving. It draws in once, in order, and stays — no looping
-   pulses, no crossing paths, just one clear line showing what
-   happens and when. */
 .problem-route{
   opacity: 0;
   width: 100%;
@@ -608,16 +582,14 @@ body{
   opacity: 1;
 }
 
-/* Every stage (each point, the phone icon, the labels) shares this
-   same one-time fade-in; only the *delay* differs per stage, set with
-   the .seq-N classes below. */
+
 .seq{
   opacity: 0;
   transform: translateY(8px);
-  transform-box: fill-box; /* needed so translateY works on SVG shapes */
+  transform-box: fill-box; 
   transform-origin: center;
   animation: seq-fade 0.5s ease forwards;
-  animation-play-state: paused; /* stays invisible until in view */
+  animation-play-state: paused; 
 }
 
 #problem .scene.reveal.in .seq{
@@ -629,22 +601,18 @@ body{
   to{ opacity: 1; transform: translateY(0); }
 }
 
-/* Stage delays, in the order the story happens. Adjust these numbers
-   to speed the sequence up or slow it down. */
-.seq-1{ animation-delay: 0s;    }  /* home */
-.seq-2{ animation-delay: 0.9s;  }  /* wandering waypoint */
-.seq-3{ animation-delay: 1.6s;  }  /* found + no-ID callout */
-.seq-4{ animation-delay: 2.1s;  }  /* phone / calls Zawadi */
-.seq-5{ animation-delay: 2.7s;  }  /* Zawadi arrives */
 
-/* The single straight line drawing left to right. Same "dash marching
-   forward" technique as before (a dashed stroke whose dashoffset
-   counts down to 0) but now just one straight path instead of two
-   curved, crossing ones. */
+.seq-1{ animation-delay: 0s;    }  
+.seq-2{ animation-delay: 2s;    }  
+.seq-3{ animation-delay: 4s;    }  
+.seq-4{ animation-delay: 6s;    }  
+.seq-5{ animation-delay: 8s;    }  
+
+
 .story-line{
   stroke-dasharray: 10 8;
   stroke-dashoffset: 780;
-  animation: draw-story-line 2.7s linear forwards;
+  animation: draw-story-line 10s linear forwards;
   animation-play-state: paused;
 }
 
@@ -657,9 +625,6 @@ body{
 }
 
 
-/* ==========================================================================
-   "WHY THIS KEEPS HAPPENING" — the research/evidence section
-   ========================================================================== */
 .evidence-band{
   width: 100%;
   background: var(--bg-2);
@@ -669,8 +634,7 @@ body{
 
 .evidence-grid{
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.85fr); /* list on the left, photo on the right */
-  gap: 2rem;
+  grid-template-columns: minmax(0, 1fr) minmax(240px, 0.85fr); 
   align-items: center;
   margin-top: 1.5rem;
 }
@@ -706,9 +670,6 @@ body{
   margin-bottom: 0.3rem;
 }
 
-/* The reasons list has no accompanying photo, so it's laid out as two
-   columns of cards on wider screens instead of the list+image split
-   the evidence section uses. */
 .reasons-band{
   width: 100%;
   background: var(--bg);
@@ -753,9 +714,6 @@ body{
   color: var(--muted);
 }
 
-/* ==========================================================================
-   "HOW IT WORKS" — the four-step flow
-   ========================================================================== */
 #solution{
   width: 100%;
   background: var(--bg);
@@ -764,7 +722,7 @@ body{
 .flow{
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr)); /* four equal steps in a row */
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -804,16 +762,7 @@ body{
   font-size: 1.3rem;
 }
 
-/* ==========================================================================
-   "SETTING UP AN ACCOUNT" — new onboarding walkthrough section
-   --------------------------------------------------------------------------
-   This section shows, step by step, what a caregiver actually sees while
-   signing up and creating an elder's profile. Each step reuses the same
-   ".onboard-step" card shape, with a small mock screen inside it built
-   from real HTML elements styled to look like app UI (not a photograph)
-   — this keeps it consistent with the rest of the demo and doesn't
-   require a real screenshot of an app that doesn't exist yet.
-   ========================================================================== */
+
 .onboarding-band{
   width: 100%;
   background: var(--bg-3);
@@ -822,7 +771,7 @@ body{
 .onboard-grid{
   margin-top: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* three steps side by side */
+  grid-template-columns: repeat(3, minmax(0, 1fr)); 
   gap: 1.25rem;
   align-items: start;
 }
@@ -857,8 +806,6 @@ body{
   padding: 1.1rem;
 }
 
-/* A fake browser/app "window" chrome (three dots), reused across every
-   mock screen on the site so they all look like part of one product. */
 .mini-bar{
   display: flex;
   gap: 0.35rem;
@@ -873,9 +820,7 @@ body{
   display: inline-block;
 }
 
-/* Labelled form fields used inside the onboarding mock screens. These
-   are plain <div>s styled to look like input boxes — not real inputs —
-   since this is an illustration of the flow, not a working form. */
+
 .mock-field{
   margin-bottom: 0.75rem;
 }
@@ -927,8 +872,6 @@ body{
   border: 1px solid var(--accent-3);
 }
 
-/* Step 3's little QR + "card ready" preview, reusing the same fake-QR
-   background pattern as the main card demo higher up the page. */
 .mock-qr-row{
   display: flex;
   align-items: center;
@@ -958,9 +901,7 @@ body{
   line-height: 1.4;
 }
 
-/* ==========================================================================
-   "WHO SEES WHAT" — caregiver dashboard + phone-scan comparison
-   ========================================================================== */
+
 #views{
   width: 100%;
   background: var(--bg);
@@ -970,8 +911,7 @@ body{
   margin-top: 1.5rem;
   align-items: stretch;
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr)); /* dashboard left, phone right */
-  gap: 1.25rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
 }
 
 .app-window,
@@ -1024,7 +964,7 @@ body{
 }
 
 .elder-row:first-of-type{
-  border-top: none; /* removes the divider above the very first row */
+  border-top: none;
 }
 
 .elder-info{
@@ -1070,7 +1010,7 @@ body{
 
 .phone{
   width: min(100%, 320px);
-  margin-left: auto; /* pushes the phone mockup to the right edge of its column */
+  margin-left: auto; 
 }
 
 .scan-demo-col{
@@ -1093,7 +1033,7 @@ body{
 
 .scan-flash,
 .role{
-  width: fit-content; /* only as wide as its text, not the full row */
+  width: fit-content; 
   margin-bottom: 0.65rem;
 }
 
@@ -1161,7 +1101,7 @@ body{
   border-radius: 10px;
   border: 1px solid var(--line);
   background: #ffffff;
-  min-height: 100%; /* keeps all three cards the same height even with uneven text */
+  min-height: 100%; 
 }
 
 .privacy-item .dot{
@@ -1172,18 +1112,13 @@ body{
   margin-bottom: 0.7rem;
 }
 
-/* ==========================================================================
-   GET-STARTED PAGE (get-started.html) — Register vs. Log in choice
-   ========================================================================== */
 .choice-grid{
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
-/* Each card is a single <a> element wrapping all its content, so the
-   entire card is clickable, not just the "Register →" text at the
-   bottom. */
+
 .choice-card{
   display: block;
   text-decoration: none;
@@ -1228,31 +1163,19 @@ body{
   color: var(--accent-3);
 }
 
-/* ==========================================================================
-   REGISTRATION PAGE (register.html)
-   --------------------------------------------------------------------------
-   Styles for the real, working <form> on the registration page — as
-   opposed to the "fake UI" .mock-input divs used in the onboarding
-   walkthrough on the home page. These rules style actual <input>,
-   <select>, and <textarea> elements.
-   ========================================================================== */
+
 .register-band{
   width: 100%;
   background: var(--bg-2);
 }
 
 .register-form{
-  max-width: 640px; /* narrower than the full band — forms read better
-    when they don't stretch too wide, so the eye doesn't have to travel
-    far from a label to its input */
+  max-width: 640px; 
   display: grid;
   gap: 1.75rem;
 }
 
-/* A <fieldset> groups related fields together (here: "your details"
-   vs "the elder's details") and its <legend> child is the visible
-   heading for that group — both are semantic HTML elements that also
-   help screen readers announce the grouping. */
+
 .field-group{
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -1281,8 +1204,6 @@ body{
   color: var(--muted);
 }
 
-/* All three real form controls share one look, so switching between
-   a text input, a dropdown, and a multi-line textarea feels seamless. */
 .field input,
 .field select,
 .field textarea{
@@ -1297,12 +1218,10 @@ body{
 }
 
 .field textarea{
-  resize: vertical; /* lets the visitor drag it taller, but not wider */
+  resize: vertical;
 }
 
-/* `:focus-visible` (rather than plain `:focus`) only shows this ring
-   when the field was reached via keyboard navigation, not on every
-   mouse click — a small but genuine accessibility improvement. */
+
 .field input:focus-visible,
 .field select:focus-visible,
 .field textarea:focus-visible{
@@ -1321,9 +1240,7 @@ body{
   color: var(--muted);
 }
 
-/* Shown when the API rejects a submission (bad login, duplicate
-   username, server error, etc). Same element is reused on the login
-   page for the same purpose. */
+
 .form-error{
   margin-top: 0.5rem;
   padding: 0.75rem 0.9rem;
@@ -1334,9 +1251,7 @@ body{
   border: 1px solid rgba(180, 70, 59, 0.3);
 }
 
-/* ==========================================================================
-   FOOTER
-   ========================================================================== */
+
 footer{
   width: 100%;
   background: var(--bg-2);
@@ -1363,15 +1278,7 @@ footer{
   font-weight: 700;
 }
 
-/* --------------------------------------------------------------------
-   FOOTER SOCIAL ICONS
-   --------------------------------------------------------------------
-   Three icon-only links (GitHub, LinkedIn, email) instead of a single
-   text link. Each <a> wraps one inline SVG icon; the SVGs use
-   `currentColor` for their fill/stroke, which is what lets a single
-   CSS rule (color, on hover) control every icon's color without
-   needing separate rules per icon.
-   -------------------------------------------------------------------- */
+
 .social-icons{
   display: flex;
   align-items: center;
@@ -1400,13 +1307,6 @@ footer{
   fill: currentColor;
 }
 
-/* ==========================================================================
-   PRIVACY POLICY PAGE (privacy.html)
-   --------------------------------------------------------------------------
-   A single-column, document-style layout — narrower than the site's
-   usual band-inner width, since long paragraphs are easier to read
-   when they don't stretch too wide.
-   ========================================================================== */
 .policy-band{
   width: 100%;
   background: var(--bg);
@@ -1464,16 +1364,7 @@ footer{
   margin-bottom: 1.5rem;
 }
 
-/* ==========================================================================
-   RESPONSIVE RULES
-   --------------------------------------------------------------------------
-   Everything above is written "desktop-first" for clarity; these media
-   queries adjust the layout down for tablets and phones. A media query
-   only applies its rules when the browser window is at or below the
-   given width.
-   ========================================================================== */
 
-/* Tablet and below: swap the desktop nav-links for the hamburger button. */
 @media (max-width: 780px){
   .nav-links{
     display: none;
@@ -1483,9 +1374,6 @@ footer{
     display: inline-flex;
   }
 
-  /* When the hamburger is clicked, script.js adds this class to
-     .nav-links, which overrides the display:none above and shows the
-     links stacked vertically underneath the top bar. */
   .nav-links.mobile-open{
     display: flex;
     flex-direction: column;
@@ -1501,8 +1389,6 @@ footer{
   }
 }
 
-/* Wider tablets/small laptops: collapse every multi-column grid down to
-   a single column so nothing feels cramped. */
 @media (max-width: 960px){
   .hero-inner,
   .scene-grid,
@@ -1531,13 +1417,12 @@ footer{
 
 @media (max-width: 640px){
   .topbar{
-    position: relative; /* needed so the mobile nav-links can position
-      itself against the top bar via `position: absolute; top: 100%;` above */
+    position: relative; 
     flex-wrap: wrap;
   }
 
   .back-row{
-    grid-template-columns: 1fr; /* label above value instead of side-by-side */
+    grid-template-columns: 1fr; 
   }
 
   .footer-inner{
