@@ -5,12 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Register — Hakika</title>
 <link rel="stylesheet" href="main.css">
+<link rel="icon" type="image/png" href="H.png">
+<link rel="apple-touch-icon" href="H.png">
 </head>
 <body>
 
-<!-- Same top bar as index.html, so the site feels like one connected
-     product rather than two unrelated pages. The brand link points
-     back to index.html#top since "home" is a different file now. -->
 <header class="topbar">
   <a class="brand" href="main.html#top" aria-label="Hakika home">
     <img class="brand-mark" src="H.png" alt="Hakika logo" width="48" height="48">
@@ -40,9 +39,7 @@
 
 <main>
 
-  <!-- A smaller version of the hero banner, just to introduce the
-       registration page and keep the full-width coloured header
-       treatment consistent with the home page. -->
+  
   <section class="hero-banner">
     <div class="band-inner" style="padding-top: clamp(2rem, 5vw, 3rem); padding-bottom: clamp(2rem, 5vw, 3rem);">
       <div class="hero-banner-content" style="max-width: 640px;">
@@ -53,33 +50,11 @@
     </div>
   </section>
 
-  <!-- ==========================================================================
-       REGISTRATION FORM
-       --------------------------------------------------------------------------
-       This form now submits to a real backend: /api/register (see
-       api/index.js in this project). On submit, script.js sends the
-       fields below as JSON to that endpoint, which hashes the password
-       with bcrypt, stores everything in MongoDB, generates a real card
-       ID, and sends back a login token. That token is saved in the
-       browser's localStorage under "hakikaToken" — that's what "being
-       logged in" means on this site; login.html reads the same key
-       back out after a successful login.
-
-       For this to actually work when you open the page, two things
-       need to be true:
-         1. api/index.js is deployed (e.g. on Vercel) alongside this
-            HTML file, so /api/register is a real, reachable address
-         2. The MONGODB_URI and JWT_SECRET environment variables are
-            set wherever it's deployed — see the comments at the top
-            of api/index.js for what those need to contain
-       ========================================================================== -->
+ 
   <section class="register-band">
     <div class="band-inner">
 
-      <!-- The form itself. `id="registerForm"` is how script.js finds
-           it. `novalidate` is NOT set, so the browser's own built-in
-           validation (the `required` attributes below) still runs
-           before our JavaScript gets a chance to handle the submit. -->
+      
       <form id="registerForm" class="register-form">
 
         <fieldset class="field-group">
@@ -107,12 +82,7 @@
             </select>
           </div>
 
-          <!-- These three fields are what actually let you log back in
-               later on login.html — without a username/password stored
-               somewhere, there's nothing for a login page to check
-               against. The password is never sent or stored as plain
-               text; api/index.js hashes it with bcrypt before it ever
-               touches the database. -->
+          
           <div class="field">
             <label for="username">Choose a username</label>
             <input type="text" id="username" name="username" placeholder="e.g. zawadi.njeri" autocomplete="username" required>
@@ -153,23 +123,18 @@
           </div>
         </fieldset>
 
-        <!-- Shown by script.js if the API rejects the submission (e.g.
-             username already taken, passwords don't match, server
-             error). Hidden by default. -->
+        
         <p class="form-error" id="registerError" hidden></p>
 
         <button type="submit" class="mock-btn" style="margin-top: 0.5rem;">Create profile</button>
       </form>
 
-      <!-- Cross-link back to the choice, for anyone who ended up here
-           by mistake and actually already has an account. -->
+      
       <p style="margin-top: 1.25rem; font-size: 0.9rem; color: var(--muted);">
         Already have an account? <a href="login.html" style="color: var(--accent-3); font-weight: 700;">Log in</a>
       </p>
 
-      <!-- Hidden until the form is submitted. script.js removes the
-           "hidden" attribute and fills in the elder's name + a
-           generated ID once the form passes validation. -->
+      
       <div class="register-success" id="registerSuccess" hidden>
         <div class="mock-qr-row">
           <div class="mock-qr" aria-hidden="true"></div>
